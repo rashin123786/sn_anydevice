@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:sn_advice/core/model/hive_model.dart';
-import 'package:sn_advice/utils/contants.dart';
 
 class ApiServices {
   Future<List<HivePost>> getData() async {
-    final url = 'https://api.hive.blog/';
+    const url = 'https://api.hive.blog/';
     final header = {
       "accept": "application/json, text/plain, */*",
       "content-type": "application/json"

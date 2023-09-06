@@ -8,11 +8,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(248, 248, 248, 1),
+      backgroundColor: const Color.fromRGBO(248, 248, 248, 1),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromRGBO(248, 248, 248, 1),
-        title: Text(
+        backgroundColor: const Color.fromRGBO(248, 248, 248, 1),
+        title: const Text(
           "All product",
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
                           child: Column(
@@ -57,21 +57,21 @@ class HomeScreen extends StatelessWidget {
                                         backgroundImage: data
                                                 .jsonMetadata.image.isNotEmpty
                                             ? index == 4
-                                                ? NetworkImage(
+                                                ? const NetworkImage(
                                                     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png')
                                                 : NetworkImage(
                                                     data.jsonMetadata.image[0],
                                                   )
-                                            : NetworkImage(
+                                            : const NetworkImage(
                                                 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png')),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10,
                                     ),
                                     RichText(
                                       text: TextSpan(
                                           text:
                                               '${'${data.author} ($autherReputation)'} ',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w700),
                                           children: [
@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                                                   : hoursDifference < 24
                                                       ? 'in ${data.category} . $hoursDifference hours ago'
                                                       : 'in # ${data.category} . Yesterday',
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Color.fromRGBO(
                                                     120, 129, 135, 1),
                                               ),
@@ -98,12 +98,12 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                       width: 100,
                                       height: 85,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.grey,
                                       ),
                                       child: data.jsonMetadata.image.isNotEmpty
                                           ? index == 4
-                                              ? Icon(
+                                              ? const Icon(
                                                   Icons.error,
                                                   color: Colors.red,
                                                 )
@@ -111,33 +111,33 @@ class HomeScreen extends StatelessWidget {
                                                   imageUrl: data
                                                       .jsonMetadata.image[0],
                                                   placeholder: (context, url) =>
-                                                      Center(
+                                                      const Center(
                                                     child:
                                                         CircularProgressIndicator(),
                                                   ),
                                                   errorWidget:
                                                       (context, url, error) =>
-                                                          Icon(
+                                                          const Icon(
                                                     Icons.error,
                                                     color: Colors.red,
                                                   ),
                                                   fit: BoxFit.cover,
                                                   alignment: Alignment.center,
                                                 )
-                                          : Icon(
+                                          : const Icon(
                                               Icons.error,
                                               color: Colors.red,
                                             )),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 5,
                                   ),
                                   Flexible(
                                     child: ListTile(
                                       contentPadding:
-                                          EdgeInsets.only(left: 4, right: 4),
+                                          const EdgeInsets.only(left: 4, right: 4),
                                       title: Text(
-                                        "${data.permlink}",
-                                        style: TextStyle(
+                                        data.permlink,
+                                        style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -152,50 +152,50 @@ class HomeScreen extends StatelessWidget {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                           ),
-                                          Divider(
+                                          const Divider(
                                             thickness: 0.2,
                                           ),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 Icons.arrow_circle_up_outlined,
                                                 color: Colors.red,
                                                 size: 18,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.arrow_circle_down_rounded,
                                                 size: 18,
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 4,
                                               ),
                                               Text("\$${data.payout}"),
-                                              Icon(
+                                              const Icon(
                                                 Icons.arrow_drop_down,
                                                 size: 18,
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 4,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.keyboard_arrow_up,
                                                 size: 18,
                                               ),
                                               Text("${data.stats.totalVotes}"),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 4,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.comment,
                                                 size: 18,
                                               ),
                                               Text("${data.children}"),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 4,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.directions,
                                                 size: 18,
                                               )
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
